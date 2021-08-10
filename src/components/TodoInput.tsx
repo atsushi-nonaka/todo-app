@@ -19,19 +19,21 @@ const TodoInput: React.FC<TodoProp> = props => {
     const [titleState, setTitleState] = useState<string>('')
     const [contentState, setContentState] = useState<string>('')
     const [expectedEndDateState, setExpectedEndDateState] = useState<string>('')
+    const [statusState, setStatusState] = useState<'new' | 'wip' | 'done'>('new')
 
     useEffect(() => {
         history.location.state ? setTitleState(history.location.state.title) : setTitleState('')
         history.location.state ? setContentState(history.location.state.content) : setContentState('')
         history.location.state ? setExpectedEndDateState(history.location.state.expectedEndDate) : setExpectedEndDateState('')
+        history.location.state ? setStatusState(history.location.state.status) : setStatusState('new')
     }, [history.location.state])
 
     const submitHandler = (event: React.FormEvent) => {
-        console.log('test')
         event.preventDefault()
         const title = titleState!.trim()
         const content = contentState!.trim()
         const expectedEndDate = expectedEndDateState
+        const status = statusState
 
         if (!validateTitle(title)) {
             alert('Please write title between 5 - 10 letters')
@@ -50,7 +52,7 @@ const TodoInput: React.FC<TodoProp> = props => {
         }else if (props.onEditTodo){
             const todo = location.state as TodoState
             const id = todo.id;
-            props.onEditTodo({ id , title, content, expectedEndDate })
+            props.onEditTodo({ id , title, content, expectedEndDate, status })
         }
         clearInput()
         history.push('/')
@@ -122,7 +124,11 @@ const TodoInput: React.FC<TodoProp> = props => {
                     value={expectedEndDateState} 
                     onChange={handleDate}
                 />
-                <Button type='submit'>Add Todo</Button>
+                <Button 
+                    variant="outlined" 
+                    color="primary" 
+                    type='submit'
+                >Add Todo</Button>
             </form>
         </div>
     )

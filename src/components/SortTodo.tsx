@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 
 import { endDate, searchByText, sortBy, startDate } from "../slices/filterSlice";
 
-import { TextField } from '@material-ui/core'
+import { MenuItem, TextField } from '@material-ui/core'
 
 export const SortTodo: React.FC = () => {
     const dispatch = useAppDispatch()
@@ -14,7 +14,7 @@ export const SortTodo: React.FC = () => {
     }
 
     const handleSortBy = (e: React.ChangeEvent<HTMLInputElement>) => {
-        dispatch(sortBy(e.currentTarget.value))
+        dispatch(sortBy(e.currentTarget.dataset.value as string))
     }
 
     const handleStartDate = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,9 +39,9 @@ export const SortTodo: React.FC = () => {
                 select
                 defaultValue='date'
             >
-                <option value='date'>Date</option>
-                <option value='a→z'>A→Z</option>
-                <option value='z→a'>Z→A</option>
+                <MenuItem value={'date'}>Date</MenuItem>
+                <MenuItem value={'a→z'}>A→Z</MenuItem>
+                <MenuItem value={'z→a'}>Z→A</MenuItem>
             </TextField>
             <TextField 
                 type="date" 

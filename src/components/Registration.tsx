@@ -14,7 +14,8 @@ export const Registration: React.FC = () => {
             id: uuid(),
             title,
             content,
-            expectedEndDate
+            expectedEndDate,
+            status: 'new'
         }))
     }
 

@@ -8,7 +8,8 @@ export type TodoState = {
     id: string,
     title: string,
     content: string,
-    expectedEndDate: string
+    expectedEndDate: string,
+    status: 'new' | 'wip' | 'done'
 }
 
 // todo
@@ -30,7 +31,8 @@ export type TodoListProp = {
         id: string,
         title: string,
         content: string,
-        expectedEndDate: string
+        expectedEndDate: string,
+        status: 'new' | 'wip' | 'done'
     }[],
     onDeleteTodo: (id: string) => void,
     onEditTodo: (todo: TodoState) => void

@@ -1,6 +1,3 @@
-import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import TodoList from "./TodoList";
 
@@ -27,9 +24,12 @@ export const Dashboard: React.FC = () => {
 
     return (
         <div>
-            <h1>Dashboard</h1>
             <SortTodo />
-            <TodoList todos={todoSelector(todos, filters)} onDeleteTodo={deleteTodoById} onEditTodo={editRegisteredTodo}/>
+            <TodoList 
+                todos={todoSelector(todos, filters)} 
+                onDeleteTodo={deleteTodoById} 
+                onEditTodo={editRegisteredTodo}
+            />
         </div>
     )
 }

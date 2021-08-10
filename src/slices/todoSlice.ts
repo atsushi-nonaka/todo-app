@@ -22,11 +22,13 @@ export const todoSlice = createSlice({
                     const content = action.payload.content
                     const title = action.payload.title
                     const expectedEndDate = action.payload.expectedEndDate
+                    const status = action.payload.status
                     return {
                         ...todo,
                         title,
                         content,
-                        expectedEndDate
+                        expectedEndDate,
+                        status
                     }
                 }
                 return todo
