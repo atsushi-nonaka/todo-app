@@ -27,13 +27,17 @@ export type TodoProp = {
 }
 
 export type TodoListProp = {
-    todos: {
-        id: string,
-        title: string,
-        content: string,
-        expectedEndDate: string,
-        status: 'new' | 'wip' | 'done'
-    }[],
+    todos: TodoState[],
     onDeleteTodo: (id: string) => void,
-    onEditTodo: (todo: TodoState) => void
+    onEditTodo: (todo: TodoState) => void,
+    onStatusDown: (todo: TodoState) => void,
+    onStatusUp: (todo: TodoState) => void
+}
+
+export type TodoItemProp = {
+    todo: TodoState,
+    onDeleteTodo: (id: string) => void,
+    onEditTodo: (todo: TodoState) => void,
+    onStatusDown: (todo: TodoState) => void,
+    onStatusUp: (todo: TodoState) => void
 }

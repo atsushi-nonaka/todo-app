@@ -3,7 +3,7 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Dashboard } from '../components/Dashboard'
 import { Edit } from '../components/Edit'
-import Header from '../components/Header'
+import { Header } from '../components/Header'
 import { NotFound } from '../components/NotFound'
 import { Registration } from '../components/Registration'
 
